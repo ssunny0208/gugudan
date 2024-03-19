@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구구단</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        margin: 20px;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>구구단</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>구구단</th>
+          <th>1</th>
+          <th>2</th>
+          <th>3</th>
+          <th>4</th>
+          <th>5</th>
+          <th>6</th>
+          <th>7</th>
+          <th>8</th>
+          <th>9</th>
+        </tr>
+      </thead>
+      <tbody id="gugudanTableBody"></tbody>
+    </table>
+
+    <script>
+      // 구구단 테이블을 채우는 함수
+      function generateGugudan() {
+        var tableBody = document.getElementById("gugudanTableBody");
+
+        // 각 행(1부터 9까지)에 대한 반복문
+        for (var i = 1; i <= 9; i++) {
+          var row = document.createElement("tr");
+
+          // 첫 번째 열에는 구구단 숫자를 표시
+          var gugudanCell = document.createElement("td");
+          gugudanCell.textContent = i;
+          row.appendChild(gugudanCell);
+
+          // 1부터 9까지의 숫자와 구구단 결과를 계산하여 각 열에 표시
+          for (var j = 1; j <= 9; j++) {
+            var cell = document.createElement("td");
+            cell.textContent = i * j;
+            row.appendChild(cell);
+          }
+
+          // 현재 행을 테이블에 추가
+          tableBody.appendChild(row);
+          console.log(tableBody);
+        }
+      }
+
+      // 페이지 로드 시 구구단 생성 함수 호출
+      document.addEventListener("DOMContentLoaded", generateGugudan);
+    </script>
+  </body>
+</html>
